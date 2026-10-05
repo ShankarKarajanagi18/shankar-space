@@ -1,31 +1,65 @@
 # Shankar portfolio
 
-A Next.js 14 site for content writing, social media and digital marketing freelance work.
+A Next.js 14 portfolio for Shankar's freelance writing, social media, digital marketing, and web development work.
 
-## Run it
+## Requirements
+
+- Node.js 18.17 or newer
+- npm
+
+## Development
+
+Install dependencies and start the local server:
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
-npm run build    # production build
+npm run dev
 ```
 
-## Make it yours
+Open [http://localhost:3000](http://localhost:3000).
 
-Everything editable is in `lib/content.js`:
+Create a production build with:
 
-1. Set `site.email`, `site.whatsapp` and optionally `site.photo` (put the image in `/public`).
-2. Replace every item marked `sample: true` (work, case studies, testimonials) with real work and real numbers.
-3. Set `showSampleTags` to `false` once the samples are gone.
-4. Edit the hero lines in `edits` and the before/after paragraph in `rewrite`.
+```bash
+npm run build
+npm start
+```
 
-Colours and fonts are CSS variables at the top of `app/globals.css`.
+## Project structure
 
-## The brief form
+```text
+app/             App Router layout, page, and global styles
+components/      Page sections and interactive UI
+lib/content.js   Site details, services, work samples, FAQs, and copy
+public/          Static assets
+```
 
-It has no backend. On submit it opens a pre-filled email, and offers WhatsApp and copy buttons. To receive submissions
-without the visitor's email app, point the form at Formspree, Resend or a Next.js route handler.
+The page is composed in `app/page.js`. The visual system is defined in `app/globals.css` with CSS variables for colors, typography, spacing, and themes.
 
-## Deploy
+## Editing content
 
-Push to GitHub and import the repo on Vercel. No settings needed.
+Most portfolio content lives in `lib/content.js`:
+
+- `site`: name, role, location, email, WhatsApp number, and optional profile photo
+- `services`: service descriptions, deliverables, quote wording, and turnaround times
+- `work`: portfolio entries and sample labels
+- `edits`: the hero writing examples
+- `rewrite`: the before-and-after copy example
+- `process`: project steps
+- `faqs`: frequently asked questions
+
+Work entries currently marked `sample: true` are placeholders. Replace them with your own work before publishing. Set `site.showSampleTags` to `false` when the sample labels are no longer needed.
+
+## Contact form
+
+The brief form has no backend. It creates a pre-filled email and also offers WhatsApp and copy options. To handle submissions without the visitor's email app, connect the form to a service such as Formspree, Resend, or a Next.js route handler.
+
+## Deployment
+
+This is a standard Next.js app and can be deployed to Vercel:
+
+1. Push the repository to GitHub.
+2. Import the repository into Vercel.
+3. Use the default build settings.
+
+The production build command is `npm run build`.
